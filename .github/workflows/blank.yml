@@ -35,8 +35,8 @@ jobs:
   good-bye:
       name: goodbye the world
       runs-on: ubuntu-latest
-      needs: [hello]
-      if: needs.hello.outcome == true
+      needs: hello
+      if: needs.hello.outcome == true  # todo: need to fix
       
       steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
