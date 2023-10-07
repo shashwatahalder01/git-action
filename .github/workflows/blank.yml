@@ -33,7 +33,10 @@ jobs:
           echo test, and deploy your project.
           
   good-bye:
+      name: goodbye the world
       runs-on: ubuntu-latest
+      needs: [hello]
+      if: needs.hello.outcome == true
       
       steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
