@@ -1,5 +1,5 @@
 name: hello-world
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: test on  ${{ github.actor }} 
 
 # Controls when the workflow will run
 on:
@@ -15,6 +15,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   hello:
+    name: greetings the world
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
