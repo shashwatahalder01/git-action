@@ -33,7 +33,7 @@ jobs:
           then
             echo Add your deployment commands here
           else
-            echo "Deployment skipped. This job is only triggered on 'push' to 'main' branch."
+            echo "Deployment skipped. This job is only triggered on 'push' to 'main' branch. sdfdsfs"
           fi
 
           
