@@ -31,7 +31,7 @@ jobs:
         run: |
           if [ github.event_name == "push" ] 
             Add your deployment commands here
-          else
+          then
             echo "Deployment skipped. This job is only triggered on 'push' to 'main' branch."
           fi
           
