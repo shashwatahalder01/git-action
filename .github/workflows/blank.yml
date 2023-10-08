@@ -29,14 +29,17 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          if [ github.event_name == "push" ] 
+            # Add your deployment commands here
+          else
+            echo "Deployment skipped. This job is only triggered on 'push' to 'main' branch."
+          fi
           
   good-bye:
       name: goodbye the world
       runs-on: ubuntu-latest
       needs: [hello]
-      if: needs.hello.outputs == true  # todo: need to fix
+      # if: needs.hello.outputs == true  # todo: need to fix
       
       steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
