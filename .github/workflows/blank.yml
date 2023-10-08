@@ -36,7 +36,7 @@ jobs:
       name: goodbye the world
       runs-on: ubuntu-latest
       needs: [hello]
-      if: needs.hello.result == true  # todo: need to fix
+      if: needs.hello.outputs == true  # todo: need to fix
       
       steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -50,4 +50,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
+          if: github.event_name == 'push'
           echo test, and deploy your project.
