@@ -30,10 +30,12 @@ jobs:
       - name: Run a multi-line script
         run: |
           if [ github.event_name == "push" ] 
-            Add your deployment commands here
           then
+            echo Add your deployment commands here
+          else
             echo "Deployment skipped. This job is only triggered on 'push' to 'main' branch."
           fi
+
           
   good-bye:
       name: goodbye the world
