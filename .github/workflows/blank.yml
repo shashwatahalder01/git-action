@@ -15,7 +15,6 @@ jobs:
         id: hello
         run: |
           echo Hello, world!
-          exit 1
 
       - name: output 1
         if: always()
