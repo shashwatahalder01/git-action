@@ -21,3 +21,47 @@ jobs:
           keep_minimum_runs: 210
           delete_workflow_pattern: "e2e-tests.yml"
           delete_run_by_conclusion_pattern: "failed"
+
+
+
+
+
+
+
+name: hello-world
+run-name: test on  ${{ github.actor }} 
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        id: hello
+        run: echo Hello, world!
+
+      - name: output 1
+        if: always()
+        run: |
+          echo ${{steps.hello.outcome}}
+
+      - name: holla
+        id: holla
+        run: |
+          echo holla, world!
+          exit 1
+
+      - name: output 2
+        if: always()
+        run: |
+          echo ${{steps.hello.outcome}}
+
+
+      - name: Bye
+        id: bye
+        if: steps.hello.outcome == 'success'
+        run: echo bye, world!
