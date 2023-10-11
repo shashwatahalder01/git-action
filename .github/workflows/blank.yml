@@ -33,7 +33,7 @@ jobs:
 
       - name: Bye
         id: bye
-        if: steps.hello.outcome == 'success'
+        if: always() && steps.hello.outcome == 'success'
         run: echo bye, world!
 
 
