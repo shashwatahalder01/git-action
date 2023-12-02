@@ -3,8 +3,17 @@ name: workflow_dispatch_with_input
 on:
   workflow_dispatch:
     inputs:
+      environment:
+        description: Run tests on which environment
+        default: production
       testsuite:
         description: Choose which test suite to run
+        default: all
+        type: choice
+        options:
+          - e2e
+          - api
+          - all
 
 jobs:
   del_runs:
