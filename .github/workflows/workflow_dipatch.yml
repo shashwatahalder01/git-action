@@ -5,7 +5,7 @@ on:
     inputs:
       testsuite:
         description: Choose which test suite to run
-        required: true
+        required: false
 
 jobs:
   del_runs:
