@@ -1,0 +1,16 @@
+name: workflow_dispatch_with_input
+
+on: 
+  workflow_dispatch:
+        inputs:
+          testsuite: 
+          description: Choose which test suite to run
+
+
+jobs:
+  del_runs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run with input
+        run: |
+        echo: ${github.context.inputs.testsuite}
