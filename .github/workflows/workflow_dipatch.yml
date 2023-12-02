@@ -8,17 +8,31 @@ on:
         default: production
       testsuite:
         description: Choose which test suite to run
-        default: all
+        default: All
         type: choice
         options:
-          - e2e
-          - api
-          - all
+          - E2E
+          - API
+          - All
 
 jobs:
-  del_runs:
+  workflow_with_input:
     runs-on: ubuntu-latest
     steps:
       - name: run with input
         run: |
-          echo ${github.context.inputs.testsuite}
+          echo ${{github.context.inputs.testsuite}}
+
+      # Run e2e tests
+      - name: 🧪 Running the e2e tests
+        id: e2e-test
+        if: success() && ${{github.context.inputs.testsuite == 'E2E' }}
+        run: |
+          echo running e2e tests
+      # Run API tests
+      - name: 🧪 Running the api tests
+        id: api-test
+        if: always() && ${{github.context.inputs.testsuite  == 'API' }}
+        timeout-minutes: 5
+        run: |
+          echo running api tests
