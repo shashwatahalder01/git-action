@@ -26,13 +26,13 @@ jobs:
       # Run e2e tests
       - name: 🧪 Running the e2e tests
         id: e2e-test
-        if: success() && github.event.inputs.testsuite  == 'E2E'
+        if: success() && (github.event.inputs.testsuite == 'E2E' || github.event.inputs.testsuite == 'All')
         run: |
           echo running e2e tests
       # Run API tests
       - name: 🧪 Running the api tests
         id: api-test
-        if: always() && github.event.inputs.testsuite == 'API'
+        if: always() && (github.event.inputs.testsuite == 'API' || github.event.inputs.testsuite == 'All')
         timeout-minutes: 5
         run: |
           echo running api tests
