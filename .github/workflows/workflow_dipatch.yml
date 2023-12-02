@@ -1,12 +1,11 @@
 name: workflow_dispatch_with_input
 
-on: 
+on:
   workflow_dispatch:
-        inputs:
-          testsuite: 
-          description: Choose which test suite to run
-          required: true
-
+    inputs:
+      testsuite:
+        description: Choose which test suite to run
+        required: true
 
 jobs:
   del_runs:
@@ -14,4 +13,4 @@ jobs:
     steps:
       - name: run with input
         run: |
-        echo: ${github.context.inputs.testsuite}
+          echo ${github.context.inputs.testsuite}
